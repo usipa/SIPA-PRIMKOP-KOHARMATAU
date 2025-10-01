@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sisa Utang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo1.png" alt="Logo Perusahaan 1" class="logo">
+        <img src="logo2.png" alt="Logo Perusahaan 2" class="logo">
+    </div>
+    <div class="container">
+        <h1>Data Sisa Utang</h1>
+        <p>Data ini diperbarui secara otomatis dari database kami.</p>
+
+        <table id="sisaUtangTable">
+            <thead>
+                <tr>
+                    <th>Nama Peminjam</th>
+                    <th>Sisa Utang</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+
+        <a href="index.html" class="button">Kembali ke Beranda</a>
+    </div>
+
+    <script>
+        const sheetId = '1lnmehCAWZq6uEovST6xYPhbuurBh2XKRi3lLNOMNpZU';
+        const gid = '0';
+        const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&gid=${gid}`;
+
+        fetch(url)
+            .then(res => res.text())
+            .then(text => {
+                const json = JSON.parse(text.substr(47).slice(0, -2));
+                const tableBody = document.querySelector('#sisaUtangTable tbody');
+                
+                json.table.rows.forEach(row => {
+                    const tr = document.createElement('tr');
+                    
+                    // Ambil data dari kolom 0 (Nama Peminjam) dan 1 (Sisa Utang)
+                    const nama = row.c[0] ? row.c[0].v : '';
+                    const utang = row.c[1] ? row.c[1].v : '';
+
+                    tr.innerHTML = `<td>${nama}</td><td>${utang}</td>`;
+                    tableBody.appendChild(tr);
+                });
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Konfigurasi dasar untuk tampilan responsif -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-data Sipa Primkopau Koharmatau</title>
+    <!-- Memuat Tailwind CSS untuk styling modern dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mengatur font default Inter (sans-serif) sesuai tampilan standar */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styling untuk background image */
+        .background-image {
+            /* Placeholder untuk background. Ganti URL ini dengan URL gambar "background" Anda */
+            background-image: url('https://placehold.co/1920x1080/0d9488/ffffff?text=Background+Primkopau');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #f7f7f7; /* Default fallback color for the light background look */
+        }
+        /* Style untuk tombol agar terlihat datar dan biru seperti di gambar asli */
+        .flat-button {
+            @apply px-4 py-2 text-sm font-medium rounded-sm text-white bg-blue-500 hover:bg-blue-600 transition duration-150;
+            white-space: nowrap; /* Mencegah teks tombol melompat baris */
+        }
+        /* Style khusus untuk tombol Saran agar netral */
+        .saran-button {
+            @apply px-4 py-2 text-sm font-medium rounded-sm text-gray-800 bg-gray-200 hover:bg-gray-300 transition duration-150;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="background-image min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Header Logo Section (Ditambahkan sesuai permintaan) -->
+    <div class="absolute top-0 left-0 p-4 flex items-center space-x-3">
+        <!-- Placeholder untuk Logo 1. Ganti URL ini dengan URL gambar "logo1" Anda -->
+        <img src="https://placehold.co/64x64/ffffff/0d9488?text=Logo1" 
+             alt="Logo 1" 
+             class="h-16 w-16 rounded-full shadow-md border-2 border-white"
+             onerror="this.onerror=null; this.src='https://placehold.co/64x64/0d9488/ffffff?text=L1';">
+
+        <!-- Placeholder untuk Logo 2. Ganti URL ini dengan URL gambar "logo2" Anda -->
+        <img src="https://placehold.co/64x64/ffffff/4f46e5?text=Logo2" 
+             alt="Logo 2" 
+             class="h-16 w-16 rounded-full shadow-md border-2 border-white"
+             onerror="this.onerror=null; this.src='https://placehold.co/64x64/4f46e5/ffffff?text=L2';">
+    </div>
+
+    <!-- Kontainer Utama (Card Sederhana sesuai tampilan asli) -->
+    <div class="w-full max-w-sm p-8 bg-white rounded-md shadow-lg text-center">
+        
+        <!-- Judul dan Deskripsi Baru -->
+        <header class="mb-6">
+            <h1 class="text-xl font-bold text-blue-700 mb-2 leading-snug">
+                e-data Sipa Primkopau Koharmatau
+            </h1>
+            <p class="text-xs text-gray-600 px-4">
+                Aplikasi ini menyediakan aturan, data piutang dan blanko pengajuan pinjaman anggota Primkopau Koharmatau
+            </p>
+        </header>
+
+        <!-- Bagian Tombol Navigasi Horizontal (Sesuai tata letak gambar) -->
+        <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2 mt-4">
+            
+            <!-- Tombol 1: Aturan Peminjaman -->
+            <a href="peraturan.html" class="flat-button">
+                Aturan Peminjaman
+            </a>
+            
+            <!-- Tombol 2: Data Peminjam (Sisa Utang) -->
+            <a href="sisa-utang.html" class="flat-button">
+                Data Peminjam
+            </a>
+            
+            <!-- Tombol 3: Form Peminjaman (Unduh Blanko) -->
+            <a href="unduh.html" class="flat-button">
+                Form Peminjaman
+            </a>
+
+            <!-- Tombol 4: Menu Baru: Saran -->
+            <a href="saran.html" class="saran-button">
+                Saran
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
