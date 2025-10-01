@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikasi Pinjaman Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Selamat Datang di Aplikasi Pinjaman</h1>
+        <p>Aplikasi ini menyediakan informasi sisa utang dan peraturan peminjaman.</p>
+        <div class="nav-buttons">
+            <a href="peraturan.html" class="button">Lihat Peraturan</a>
+            <a href="sisa-utang.html" class="button">Cek Sisa Utang</a>
+            <a href="unduh.html" class="button">Unduh Blanko</a>
+        </div>
+    </div>
+</body>
+</html>
