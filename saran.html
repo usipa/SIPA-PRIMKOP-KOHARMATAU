@@ -5,123 +5,114 @@
     <title>Formulir Saran Anggota</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Styling konsisten */
         body { font-family: 'Inter', sans-serif; }
         .modern-bg {
-            background: linear-gradient(135deg, #4f46e5 0%, #1e3a8a 100%);
-        }
-        .back-button {
-            @apply px-4 py-2 text-sm font-medium rounded-lg text-gray-800 bg-gray-200 hover:bg-gray-300 transition duration-150 shadow-md;
-        }
-        .submit-button {
-            @apply px-6 py-3 text-lg font-bold rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 shadow-lg;
-        }
-        .input-field {
-            @apply w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500;
-        }
-        .message-box {
-            @apply mt-4 p-4 rounded-lg font-medium;
+            /* Warna Background Seragam dengan Peraturan.html */
+            background: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
     </style>
 </head>
-<body class="modern-bg min-h-screen flex flex-col items-center p-4">
+<body class="modern-bg min-h-screen p-4 flex justify-center items-start">
+    <div class="w-full max-w-xl bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-8 mt-10">
 
-    <!-- Header Kecil dengan Logo (Ukuran 2 cm) -->
-    <div class="absolute top-0 left-0 p-3 flex items-center space-x-2 bg-white bg-opacity-90 rounded-br-lg shadow-md">
-        <!-- Logo 1: Lencana (Simbol Organisasi) -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z"></path>
-            <path d="M12 8l-5 5M12 8l5 5M12 8V5"></path>
-        </svg>
-        <!-- Logo 2: Keuangan (Simbol Koperasi) -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M16 8h-4a2 2 0 00-2 2v4a2 2 0 002 2h4M12 8V6M12 18v-2"></path>
-        </svg>
-    </div>
-
-    <!-- Kontainer Konten Formulir -->
-    <div class="w-full max-w-lg mt-12 mb-8 p-8 bg-white rounded-xl shadow-2xl text-center">
+        <!-- Header Halaman -->
+        <div class="text-center mb-6 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-gray-800">SARAN & MASUKAN</h1>
+            <h2 class="text-lg text-blue-600">UNIT SIMPAN PINJAM PRIMKOPAU MAKO KOHARMATAU</h2>
+        </div>
         
-        <header class="mb-6 border-b pb-4">
-            <h1 class="text-3xl font-extrabold text-blue-700 mb-2">
-                LAYANAN SARAN ANGGOTA
-            </h1>
-            <p class="text-lg text-gray-600">
-                Sampaikan masukan Anda untuk peningkatan layanan unit simpan pinjam.
-            </p>
-        </header>
+        <!-- Area Konten Utama (Formulir) -->
+        <form id="saranForm" class="space-y-6">
+            
+            <!-- Notifikasi dan Status (Kosongkan Dulu) -->
+            <div id="statusMessage" class="hidden p-3 rounded-lg text-center font-medium"></div>
 
-        <main>
-            <form id="suggestionForm" action="https://script.google.com/macros/s/AKfycbyty0B9Ge0TDpmbX7K8yfq7Kce7RYykk2zC5AKBaiD-rT9Zpf2h4f4s9AaH8BfIFgz_aA/exec" method="POST" class="space-y-4">
-                
-                <div>
-                    <input type="text" id="nama" name="Nama" placeholder="Nama Lengkap" class="input-field">
-                </div>
-                
-                <!-- Field untuk Pangkat/NRP (BARU) -->
-                <div>
-                    <input type="text" id="pangkat" name="PangkatNRP" placeholder="Pangkat/NRP" class="input-field" required>
-                </div>
+            <!-- Nama Anggota -->
+            <div>
+                <label for="nama" class="block text-sm font-medium text-gray-700">Nama Anggota (Wajib Diisi)</label>
+                <input type="text" name="nama" id="nama" required 
+                       placeholder="Masukkan Nama Lengkap Anda"
+                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            </div>
 
-                <!-- Field Jabatan DIHAPUS -->
+            <!-- Pangkat/NRP (Revisi Final) -->
+            <div>
+                <label for="pangkatNRP" class="block text-sm font-medium text-gray-700">Pangkat/NRP (Wajib Diisi)</label>
+                <input type="text" name="pangkatNRP" id="pangkatNRP" required 
+                       placeholder="Pangkat/NRP (Wajib Diisi)"
+                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm placeholder-gray-700 font-bold focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+            </div>
 
-                <div>
-                    <textarea id="saran" name="Saran" rows="5" placeholder="Tuliskan Saran atau Masukan Anda di Sini..." class="input-field" required></textarea>
-                </div>
+            <!-- Saran / Masukan -->
+            <div>
+                <label for="saran" class="block text-sm font-medium text-gray-700">Saran / Masukan (Wajib Diisi)</label>
+                <textarea name="saran" id="saran" rows="5" required 
+                          placeholder="Tuliskan Saran atau Masukan Anda di Sini..."
+                          class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-700 font-bold focus:ring-blue-500 focus:border-blue-500 transition duration-150"></textarea>
+            </div>
 
-                <button type="submit" class="submit-button inline-flex items-center justify-center w-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
-                    </svg>
-                    KIRIM SARAN
+            <!-- Tombol Kirim -->
+            <div class="pt-4">
+                <button type="submit" id="submitButton" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-full shadow-lg text-lg font-semibold text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 transform hover:scale-[1.01]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    Kirim Saran
                 </button>
-            </form>
+            </div>
+        </form>
 
-            <div id="responseMessage" class="hidden message-box"></div>
-        </main>
-        
-        <div class="mt-8 text-center">
-            <a href="index.html" class="back-button inline-flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+        <!-- Tombol Kembali (Gaya Seragam dengan Aturan.html) -->
+        <div class="text-center mt-8 pt-4 border-t">
+            <a href="index.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 Kembali ke Menu Utama
             </a>
         </div>
     </div>
-
+    
+    <!-- Bagian JavaScript untuk Handling Form (Asumsi menggunakan Google Apps Script) -->
     <script>
-        document.getElementById('suggestionForm').addEventListener('submit', function(e) {
+        document.getElementById('saranForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const form = e.target;
-            const messageBox = document.getElementById('responseMessage');
             
-            messageBox.classList.add('hidden');
-            messageBox.innerHTML = 'Memproses...';
-            messageBox.classList.remove('bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
-            messageBox.classList.add('bg-yellow-100', 'text-yellow-700', 'block');
+            const form = e.target;
+            const statusMessage = document.getElementById('statusMessage');
+            const submitButton = document.getElementById('submitButton');
+            const formData = new FormData(form);
+            
+            // DUMMY URL: Ganti dengan URL Google Apps Script Anda yang sebenarnya
+            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'; 
 
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                mode: 'no-cors' // Penting untuk Apps Script
-            })
-            .then(response => {
-                // Karena Apps Script menggunakan 'no-cors', kita hanya bisa mengandalkan sukses fetch.
-                // Jika koneksi berhasil, asumsikan pengiriman berhasil.
-                messageBox.classList.remove('bg-yellow-100', 'text-yellow-700');
-                messageBox.classList.add('bg-green-100', 'text-green-700');
-                messageBox.innerHTML = 'Saran berhasil dikirim! Terima kasih atas masukan Anda.';
-                form.reset();
-            })
-            .catch(error => {
-                // Jika ada masalah jaringan atau error tak terduga
-                console.error('Error saat mengirim saran:', error);
-                messageBox.classList.remove('bg-yellow-100', 'text-yellow-700');
-                messageBox.classList.add('bg-red-100', 'text-red-700');
-                messageBox.innerHTML = 'Gagal mengirim saran. Silakan coba lagi nanti atau hubungi pengurus.';
-            });
+            statusMessage.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+            statusMessage.classList.add('bg-yellow-100', 'text-yellow-800');
+            statusMessage.textContent = 'Mengirimkan saran Anda...';
+            submitButton.disabled = true;
+
+            // Logika AJAX untuk mengirim data (menggunakan Fetch API)
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    if (response.ok) {
+                        statusMessage.classList.remove('bg-yellow-100', 'text-yellow-800');
+                        statusMessage.classList.add('bg-green-100', 'text-green-800');
+                        statusMessage.textContent = 'Terima kasih! Saran Anda berhasil dikirim.';
+                        form.reset(); // Mengosongkan formulir setelah sukses
+                    } else {
+                        throw new Error('Gagal mengirimkan data.');
+                    }
+                })
+                .catch(error => {
+                    statusMessage.classList.remove('bg-yellow-100', 'text-yellow-800');
+                    statusMessage.classList.add('bg-red-100', 'text-red-800');
+                    statusMessage.textContent = 'Error: Gagal mengirimkan saran. Silakan coba lagi.';
+                    console.error('Error submitting form:', error);
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    statusMessage.classList.remove('hidden');
+                });
         });
     </script>
 </body>
 </html>
-
