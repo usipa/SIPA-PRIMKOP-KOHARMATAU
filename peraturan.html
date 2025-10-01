@@ -1,23 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Peraturan Peminjaman</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aturan Peminjaman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .modern-bg {
+            background: linear-gradient(135deg, #4f46e5 0%, #1e3a8a 100%);
+        }
+        .back-button {
+            @apply px-4 py-2 text-sm font-medium rounded-lg text-gray-800 bg-gray-200 hover:bg-gray-300 transition duration-150 shadow-md;
+        }
+        .aturan-card {
+            @apply p-5 border-l-4 rounded-md shadow-sm mb-4;
+        }
+    </style>
 </head>
-<body>
-    <div class="logo-container">
-        <img src="logo1.png" alt="Logo Perusahaan 1" class="logo">
-        <img src="logo2.png" alt="Logo Perusahaan 2" class="logo">
-    </div>
-    <div class="container">
-        <h1>Peraturan Peminjaman</h1>
-        <p>Lihat peraturan terbaru di bawah ini.</p>
-        
-        <div class="pdf-viewer-container">
-            <iframe src="peraturan.pdf" width="100%" height="600px"></iframe>
-        </div>
+<body class="modern-bg min-h-screen flex flex-col items-center justify-center p-4">
 
-        <a href="index.html" class="button">Kembali ke Beranda</a>
+    <!-- Header Kecil dengan Logo (Ukuran 2 cm) -->
+    <div class="absolute top-0 left-0 p-3 flex items-center space-x-2 bg-white bg-opacity-90 rounded-br-lg shadow-md">
+        <!-- Logo 1: Lencana (Simbol Organisasi) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z"></path>
+            <path d="M12 8l-5 5M12 8l5 5M12 8V5"></path>
+        </svg>
+        <!-- Logo 2: Keuangan (Simbol Koperasi) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M16 8h-4a2 2 0 00-2 2v4a2 2 0 002 2h4M12 8V6M12 18v-2"></path>
+        </svg>
+    </div>
+
+    <!-- Kontainer Konten -->
+    <div class="w-full max-w-3xl p-8 bg-white rounded-xl shadow-2xl text-left">
+        
+        <header class="mb-6 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-blue-700 mb-2">
+                Aturan Peminjaman Anggota
+            </h1>
+            <p class="text-sm text-gray-500">
+                Dokumen resmi Primkopau Koharmatau. Berlaku mulai [Tanggal Berlaku].
+            </p>
+        </header>
+
+        <section id="peraturan-content" class="text-gray-700 space-y-4 text-base">
+            
+            <div class="aturan-card border-blue-500 bg-blue-50">
+                 <p class="font-bold text-lg text-blue-800 mb-1">Pasal 1: Persyaratan Umum Peminjam</p>
+                 <ul class="list-disc list-inside ml-4 space-y-1 text-sm text-blue-700">
+                     <li>Wajib terdaftar sebagai anggota Primkopau minimal selama **6 (enam) bulan**.</li>
+                     <li>Telah melunasi minimal **50%** dari pinjaman sebelumnya (jika ada).</li>
+                     <li>Tidak dalam status cuti tanpa gaji atau sedang dalam proses pemberhentian.</li>
+                     <li>Mengisi formulir pengajuan pinjaman yang dapat diunduh di **Menu 3 (Form Peminjaman)**.</li>
+                 </ul>
+            </div>
+
+            <div class="aturan-card border-green-500 bg-green-50">
+                <p class="font-bold text-lg text-green-800 mb-1">Pasal 2: Batas Plafon dan Jangka Waktu</p>
+                <ul class="list-disc list-inside ml-4 space-y-1 text-sm text-green-700">
+                    <li>**Plafon Pinjaman:** Maksimum pinjaman adalah **Rp 20.000.000,00** atau **3 (tiga) kali** jumlah total Simpanan Wajib, mana yang lebih rendah.</li>
+                    <li>**Jangka Waktu:** Tenor pengembalian pinjaman maksimum adalah **24 (dua puluh empat) bulan**.</li>
+                    <li>**Bunga:** Dikenakan jasa administrasi sebesar 1% dan jasa pinjaman sebesar 1% per bulan (sistem *flat*).</li>
+                </ul>
+            </div>
+            
+            <div class="aturan-card border-yellow-500 bg-yellow-50">
+                <p class="font-bold text-lg text-yellow-800 mb-1">Pasal 3: Prosedur dan Proses Pencairan</p>
+                <ul class="list-disc list-inside ml-4 space-y-1 text-sm text-yellow-700">
+                    <li>Formulir yang sudah diisi lengkap harus diserahkan kepada **Bendahara Kopau**.</li>
+                    <li>Batas pengajuan pinjaman adalah tanggal **10 setiap bulannya**.</li>
+                    <li>Persetujuan dan pencairan dana akan diproses paling lambat **7 (tujuh) hari kerja** setelah berkas diterima lengkap.</li>
+                </ul>
+            </div>
+            
+             <div class="aturan-card border-red-500 bg-red-50">
+                <p class="font-bold text-lg text-red-800 mb-1">Pasal 4: Kewajiban dan Sanksi</p>
+                <ul class="list-disc list-inside ml-4 space-y-1 text-sm text-red-700">
+                    <li>Anggota wajib menyetor angsuran tepat waktu melalui pemotongan gaji setiap bulan.</li>
+                    <li>Keterlambatan pembayaran lebih dari 3 bulan berturut-turut akan dikenakan sanksi berupa denda 5% dari angsuran pokok atau penangguhan hak keanggotaan.</li>
+                </ul>
+            </div>
+            
+        </section>
+
+        <div class="mt-8 text-center">
+            <a href="index.html" class="back-button inline-flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                Kembali ke Menu Utama
+            </a>
+        </div>
     </div>
 </body>
 </html>
