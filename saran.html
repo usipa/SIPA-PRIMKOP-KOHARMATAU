@@ -1,130 +1,124 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Konfigurasi dasar untuk tampilan responsif -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saran & Masukan Anggota</title>
-    <!-- Memuat Tailwind CSS untuk styling modern dan responsif -->
+    <title>Formulir Saran Anggota</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Mengatur font default Inter (sans-serif) */
-        body {
-            font-family: 'Inter', sans-serif;
+        /* Styling konsisten */
+        body { font-family: 'Inter', sans-serif; }
+        .modern-bg {
+            background: linear-gradient(135deg, #4f46e5 0%, #1e3a8a 100%);
         }
-        /* Custom styling untuk background image, menggunakan URL placeholder yang sama */
-        .background-image {
-            background-image: url('https://placehold.co/1920x1080/0d9488/ffffff?text=Background+Primkopau');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #f7f7f7;
-        }
-        /* Style untuk tombol utama (Submit) agar terlihat datar dan biru */
-        .submit-button {
-            @apply px-4 py-2 text-sm font-medium rounded-sm text-white bg-blue-500 hover:bg-blue-600 transition duration-150;
-        }
-        /* Style untuk tombol Kembali (netral) */
         .back-button {
-            @apply px-4 py-2 text-sm font-medium rounded-sm text-gray-800 bg-gray-200 hover:bg-gray-300 transition duration-150;
+            @apply px-4 py-2 text-sm font-medium rounded-lg text-gray-800 bg-gray-200 hover:bg-gray-300 transition duration-150 shadow-md;
+        }
+        .submit-button {
+            @apply px-6 py-3 text-lg font-bold rounded-xl text-white bg-blue-600 hover:bg-blue-700 transition duration-300 shadow-lg;
+        }
+        .input-field {
+            @apply w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500;
+        }
+        .message-box {
+            @apply mt-4 p-4 rounded-lg font-medium;
         }
     </style>
 </head>
-<body class="background-image min-h-screen flex flex-col items-center justify-center p-4">
+<body class="modern-bg min-h-screen flex flex-col items-center p-4">
 
-    <!-- Kontainer Formulir (Card Sederhana) -->
-    <div class="w-full max-w-lg p-8 bg-white rounded-md shadow-lg text-center">
+    <!-- Header Kecil dengan Logo (Ukuran 2 cm) -->
+    <div class="absolute top-0 left-0 p-3 flex items-center space-x-2 bg-white bg-opacity-90 rounded-br-lg shadow-md">
+        <!-- Logo 1: Lencana (Simbol Organisasi) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z"></path>
+            <path d="M12 8l-5 5M12 8l5 5M12 8V5"></path>
+        </svg>
+        <!-- Logo 2: Keuangan (Simbol Koperasi) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M16 8h-4a2 2 0 00-2 2v4a2 2 0 002 2h4M12 8V6M12 18v-2"></path>
+        </svg>
+    </div>
+
+    <!-- Kontainer Konten Formulir -->
+    <div class="w-full max-w-lg mt-12 mb-8 p-8 bg-white rounded-xl shadow-2xl text-center">
         
-        <header class="mb-6">
-            <h1 class="text-xl font-bold text-blue-700 mb-2 leading-snug">
-                Formulir Saran & Masukan
+        <header class="mb-6 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-blue-700 mb-2">
+                LAYANAN SARAN ANGGOTA
             </h1>
-            <p class="text-sm text-gray-600 px-4">
-                Sampaikan saran Anda untuk peningkatan layanan Primkopau Koharmatau.
+            <p class="text-lg text-gray-600">
+                Sampaikan masukan Anda untuk peningkatan layanan unit simpan pinjam.
             </p>
         </header>
 
-        <!-- Formulir Saran -->
-        <form id="suggestionForm" action="https://script.google.com/macros/s/AKfycbyty0B9Ge0TDpmbX7K8yfq7Kce7RYykk2zC5AKBaiD-rT9Zpf2h4f4s9AaH8BfIFgz_aA/exec" method="POST" class="space-y-4">
-            
-            <textarea 
-                id="Saran" 
-                name="Saran"
-                rows="6"
-                placeholder="Tulis saran Anda di sini..."
-                class="w-full p-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm resize-none"
-                required
-            ></textarea>
-
-            <div class="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-2">
-                <!-- Tombol Submit Saran -->
-                <button type="submit" id="submitButton" class="submit-button">
-                    Kirim Saran
-                </button>
+        <main>
+            <form id="suggestionForm" action="https://script.google.com/macros/s/AKfycbyty0B9Ge0TDpmbX7K8yfq7Kce7RYykk2zC5AKBaiD-rT9Zpf2h4f4s9AaH8BfIFgz_aA/exec" method="POST" class="space-y-4">
                 
-                <!-- Tombol Kembali ke Halaman Utama -->
-                <a href="index.html" class="back-button flex items-center justify-center">
-                    Kembali
-                </a>
-            </div>
-            
-        </form>
+                <div>
+                    <input type="text" id="nama" name="Nama" placeholder="Nama Lengkap/Inisial (Opsional)" class="input-field">
+                </div>
+                
+                <!-- Field untuk Pangkat/NRP (BARU) -->
+                <div>
+                    <input type="text" id="pangkat" name="PangkatNRP" placeholder="Pangkat/NRP (Wajib Diisi)" class="input-field" required>
+                </div>
 
-        <!-- Area untuk menampilkan pesan setelah pengiriman -->
-        <div id="responseMessage" class="mt-4 p-3 text-sm text-green-700 bg-green-100 border border-green-300 rounded-md hidden">
-            <!-- Pesan sukses akan muncul di sini -->
+                <!-- Field Jabatan DIHAPUS -->
+
+                <div>
+                    <textarea id="saran" name="Saran" rows="5" placeholder="Tuliskan Saran atau Masukan Anda di Sini..." class="input-field" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-button inline-flex items-center justify-center w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                    </svg>
+                    KIRIM SARAN
+                </button>
+            </form>
+
+            <div id="responseMessage" class="hidden message-box"></div>
+        </main>
+        
+        <div class="mt-8 text-center">
+            <a href="index.html" class="back-button inline-flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                Kembali ke Menu Utama
+            </a>
         </div>
-
     </div>
 
     <script>
-        // Fungsi untuk menangani pengiriman formulir menggunakan Fetch API
-        document.getElementById('suggestionForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah submit default
-
-            const form = event.target;
-            const actionUrl = form.action;
-            const submitButton = document.getElementById('submitButton');
-            const messageArea = document.getElementById('responseMessage');
+        document.getElementById('suggestionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const messageBox = document.getElementById('responseMessage');
             
-            // Menampilkan loading state
-            submitButton.disabled = true;
-            submitButton.textContent = 'Mengirim...';
-            messageArea.classList.add('hidden');
-            messageArea.classList.remove('text-red-700', 'bg-red-100', 'border-red-300', 'text-green-700', 'bg-green-100', 'border-green-300');
+            messageBox.classList.add('hidden');
+            messageBox.innerHTML = 'Memproses...';
+            messageBox.classList.remove('bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
+            messageBox.classList.add('bg-yellow-100', 'text-yellow-700', 'block');
 
-
-            const formData = new FormData(form);
-            
-            // Mengirim data menggunakan Fetch API
-            fetch(actionUrl, {
+            fetch(form.action, {
                 method: 'POST',
-                body: formData,
+                body: new FormData(form),
+                mode: 'no-cors' // Penting untuk Apps Script
             })
             .then(response => {
-                // Apps Script sering mengembalikan HTML atau teks
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(responseText => {
-                // Menampilkan pesan sukses
-                messageArea.textContent = 'Saran berhasil dikirim! ' + responseText;
-                messageArea.classList.remove('hidden');
-                messageArea.classList.add('text-green-700', 'bg-green-100', 'border-green-300');
-                form.reset(); // Mengosongkan formulir
+                // Karena Apps Script menggunakan 'no-cors', kita hanya bisa mengandalkan sukses fetch.
+                // Jika koneksi berhasil, asumsikan pengiriman berhasil.
+                messageBox.classList.remove('bg-yellow-100', 'text-yellow-700');
+                messageBox.classList.add('bg-green-100', 'text-green-700');
+                messageBox.innerHTML = 'Saran berhasil dikirim! Terima kasih atas masukan Anda.';
+                form.reset();
             })
             .catch(error => {
-                // Menampilkan pesan error
-                messageArea.textContent = 'Gagal mengirim saran. Pastikan Apps Script Web App sudah di-deploy dengan benar.';
-                messageArea.classList.remove('hidden');
-                messageArea.classList.add('text-red-700', 'bg-red-100', 'border-red-300');
-                console.error('Error submitting form:', error);
-            })
-            .finally(() => {
-                // Mengembalikan tombol ke keadaan semula
-                submitButton.disabled = false;
-                submitButton.textContent = 'Kirim Saran';
+                // Jika ada masalah jaringan atau error tak terduga
+                console.error('Error saat mengirim saran:', error);
+                messageBox.classList.remove('bg-yellow-100', 'text-yellow-700');
+                messageBox.classList.add('bg-red-100', 'text-red-700');
+                messageBox.innerHTML = 'Gagal mengirim saran. Silakan coba lagi nanti atau hubungi pengurus.';
             });
         });
     </script>
