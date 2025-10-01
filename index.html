@@ -1,87 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <!-- Konfigurasi dasar untuk tampilan responsif -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sipa Primkopau Koharmatau</title>
-    <!-- Memuat Tailwind CSS untuk styling modern dan responsif -->
+    <title>Sistem Informasi Unit Simpan Pinjam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Mengatur font default Inter (sans-serif) */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Background modern dengan gradient (Mengganti background image yang bermasalah) */
+        /* Styling konsisten */
+        body { font-family: 'Inter', sans-serif; }
         .modern-bg {
-            background: linear-gradient(135deg, #4f46e5 0%, #1e3a8a 100%); /* Blue to Dark Blue */
+            /* Menggunakan URL background.jpg dari Google Drive */
+            background-image: url('https://drive.google.com/uc?export=view&id=1kSL_zqGLrd1bCVFjLHjZn4wMM5SF6LRi');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        /* Style untuk setiap box menu */
-        .menu-box {
-            @apply flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 cursor-pointer border border-gray-100;
+        .menu-card {
+            @apply bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] cursor-pointer border border-gray-100;
+        }
+        .menu-grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
     </style>
 </head>
 <body class="modern-bg min-h-screen flex flex-col items-center justify-center p-4">
 
-    <!-- Header Logo Section - Menggunakan SVG sebagai pengganti gambar -->
-    <div class="absolute top-0 left-0 p-4 flex items-center space-x-3 bg-white bg-opacity-90 rounded-br-lg shadow-md">
-        <!-- Logo 1: Lencana/Lambang (Simbol Militer/Organisasi) - Ukuran 64px -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <!-- Ikon Lencana -->
-            <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z"></path>
-            <path d="M12 8l-5 5M12 8l5 5M12 8V5"></path>
-        </svg>
-
-        <!-- Logo 2: Uang/Koin (Simbol Keuangan Koperasi) - Ukuran 64px -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <!-- Ikon Koin/Uang -->
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M16 8h-4a2 2 0 00-2 2v4a2 2 0 002 2h4M12 8V6M12 18v-2"></path>
-        </svg>
-    </div>
-
-    <!-- Kontainer Utama (Card Sederhana) -->
-    <div class="w-full max-w-xl p-8 bg-white rounded-xl shadow-2xl text-center">
-        
-        <!-- Judul dan Deskripsi -->
-        <header class="mb-8">
-            <h1 class="text-3xl font-extrabold text-blue-800 mb-2 leading-tight">
-                e-data Sipa Primkopau Koharmatau
-            </h1>
-            <p class="text-sm text-gray-600 px-4">
-                Aplikasi ini menyediakan aturan peminjaman usipa, data piutang anggota dan blanko pengajuan pinjaman anggota Primkopau Koharmatau.
-            </p>
-        </header>
-
-        <!-- Bagian Menu (Menggunakan GRID yang rapi) -->
-        <div class="grid grid-cols-2 gap-4 mt-4">
-            
-            <!-- Menu 1: Aturan Peminjaman -->
-            <a href="peraturan.html" class="menu-box text-blue-700 hover:text-blue-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><path d="M14 2v6h6M13 14h5M13 18h5M6 10h5"/></svg>
-                <span class="text-sm font-semibold">1. Aturan Peminjaman</span>
-            </a>
-            
-            <!-- Menu 2: Data Peminjam -->
-            <a href="sisa-utang.html" class="menu-box text-green-700 hover:text-green-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M18.75 6.75l-4.5 4.5-4.5-4.5-4.5 4.5v-4.5h18v4.5zM18.75 12l-4.5 4.5-4.5-4.5-4.5 4.5v-4.5h18v4.5z"/></svg>
-                <span class="text-sm font-semibold">2. Data Peminjam</span>
-            </a>
-            
-            <!-- Menu 3: Form Peminjaman -->
-            <a href="unduh.html" class="menu-box text-orange-700 hover:text-orange-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v-8m4 4l-4 4m-4-4l4 4M21 16v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1m18-6H3l9-9 9 9z"/></svg>
-                <span class="text-sm font-semibold">3. Form Peminjaman</span>
-            </a>
-
-            <!-- Menu 4: Saran -->
-            <a href="saran.html" class="menu-box text-purple-700 hover:text-purple-900">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg>
-                <span class="text-sm font-semibold">4. Saran</span>
-            </a>
+    <!-- Kontainer Logo Utama -->
+    <header class="text-center mb-10 p-6 bg-white/80 rounded-2xl shadow-2xl">
+        <div class="flex items-center justify-center space-x-4 mb-4">
+            <!-- Logo 1 (dari Drive) -->
+            <img src="https://drive.google.com/uc?export=view&id=13SJRBpn3__HFa9CTe3YTjnJ6VXp9XK4F" alt="Logo Primkopau" class="h-16 w-16 object-contain rounded-full shadow-lg border-2 border-blue-500">
+            <!-- Logo 2 (dari Drive) -->
+            <img src="https://drive.google.com/uc?export=view&id=1SYdMtGxVfoCM5TWB34SvuDjRx8M70wXZ" alt="Logo Koharmatau" class="h-16 w-16 object-contain rounded-full shadow-lg border-2 border-green-500">
         </div>
-    </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-800">
+            SISTEM INFORMASI UNIT SIMPAN PINJAM
+        </h1>
+        <h2 class="text-xl text-blue-600 mt-1">
+            PRIMKOPAU MAKO KOHARMATAU
+        </h2>
+    </header>
+
+    <!-- Grid Menu Utama -->
+    <main class="w-full max-w-4xl">
+        <div class="grid menu-grid gap-6">
+            
+            <!-- Menu 1: Peraturan -->
+            <a href="peraturan.html" class="menu-card text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <h3 class="text-lg font-bold text-gray-700">Peraturan</h3>
+                <p class="text-sm text-gray-500">Syarat & Ketentuan Peminjaman</p>
+            </a>
+
+            <!-- Menu 2: Data Peminjam (Sisa Utang) -->
+            <a href="sisa-utang.html" class="menu-card text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"></path><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg>
+                <h3 class="text-lg font-bold text-gray-700">Data Peminjam</h3>
+                <p class="text-sm text-gray-500">Cek Sisa Utang & Angsuran</p>
+            </a>
+
+            <!-- Menu 3: Form Peminjaman (Unduh Blanko) -->
+            <a href="unduh.html" class="menu-card text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <h3 class="text-lg font-bold text-gray-700">Form Peminjaman</h3>
+                <p class="text-sm text-gray-500">Unduh Blanko Pengajuan</p>
+            </a>
+            
+            <!-- Menu 4: Saran -->
+            <a href="saran.html" class="menu-card text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-yellow-600 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 15.17 15.17 0 01-2.6 3.8 2.5 2.5 0 01-2.9 0 15.17 15.17 0 01-2.6-3.8A8.38 8.38 0 013 11.5a9 9 0 1018 0z"></path><path d="M12 17V12"></path><path d="M12 9h.01"></path></svg>
+                <h3 class="text-lg font-bold text-gray-700">Saran</h3>
+                <p class="text-sm text-gray-500">Sampaikan Masukan Anda</p>
+            </a>
+
+        </div>
+    </main>
 </body>
 </html>
-
-
