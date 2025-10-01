@@ -5,95 +5,67 @@
     <title>Formulir Peminjaman</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Styling konsisten */
         body { font-family: 'Inter', sans-serif; }
         .modern-bg {
-            background: linear-gradient(135deg, #4f46e5 0%, #1e3a8a 100%);
-        }
-        .back-button {
-            @apply px-4 py-2 text-sm font-medium rounded-lg text-gray-800 bg-gray-200 hover:bg-gray-300 transition duration-150 shadow-md;
-        }
-        .download-button {
-            /* Warna tombol diubah sedikit untuk membedakan dengan tombol umum */
-            @apply px-8 py-4 text-lg font-bold rounded-xl text-white bg-red-600 hover:bg-red-700 transition duration-300 shadow-lg;
-        }
-        .pdf-viewer {
-            /* Styling untuk container PDF */
-            width: 100%;
-            height: 600px; /* Tinggi disesuaikan untuk melihat pratinjau */
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background-color: #f7f7f7;
+            /* Warna Background Seragam dengan semua menu lainnya */
+            background: linear-gradient(135deg, #eff6ff 0%, #bfdbfe 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
     </style>
 </head>
-<body class="modern-bg min-h-screen flex flex-col items-center p-4">
+<body class="modern-bg min-h-screen p-4 flex justify-center items-start">
+    <div class="w-full max-w-4xl bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-8 mt-10">
 
-    <!-- Header Kecil dengan Logo (Ukuran 2 cm) -->
-    <div class="absolute top-0 left-0 p-3 flex items-center space-x-2 bg-white bg-opacity-90 rounded-br-lg shadow-md">
-        <!-- Logo 1: Lencana (Simbol Organisasi) -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z"></path>
-            <path d="M12 8l-5 5M12 8l5 5M12 8V5"></path>
-        </svg>
-        <!-- Logo 2: Keuangan (Simbol Koperasi) -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M16 8h-4a2 2 0 00-2 2v4a2 2 0 002 2h4M12 8V6M12 18v-2"></path>
-        </svg>
-    </div>
-
-    <!-- Kontainer Konten -->
-    <div class="w-full max-w-4xl mt-12 mb-8 p-8 bg-white rounded-xl shadow-2xl text-center">
+        <!-- Header Halaman -->
+        <div class="text-center mb-6 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-gray-800">FORMULIR PENGAJUAN</h1>
+            <h2 class="text-lg text-blue-600">BLANKO PINJAMAN PRIMKOPAU MAKO KOHARMATAU</h2>
+        </div>
         
-        <header class="mb-6 border-b pb-4">
-            <h1 class="text-3xl font-extrabold text-blue-700 mb-2">
-                UNDUH BLANKO PENGAJUAN PINJAMAN
-            </h1>
-            <p class="text-lg text-gray-600">
-                Silakan lihat dan unduh formulir di bawah ini.
-            </p>
-        </header>
-
-        <main class="space-y-6">
-
-            <!-- Tombol Unduh Utama -->
-            <a href="blanko.pdf" download="Formulir_Pinjaman_Primkopau.pdf" class="download-button inline-flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
-                    <polyline points="14 2 14 8 20 8"></polyline>
-                    <line x1="12" y1="18" x2="12" y2="12"></line>
-                    <line x1="9" y1="15" x2="15" y2="15"></line>
-                </svg>
-                UNDUH BLANKO (.PDF)
-            </a>
-
-            <!-- Tampilan Blanko (PDF) menggunakan Iframe/Embed -->
-            <div class="flex justify-center">
-                <iframe 
-                    src="blanko.pdf" 
-                    title="Pratinjau Formulir Pengajuan Pinjaman" 
-                    class="pdf-viewer"
-                >
-                    <p class="p-4 text-gray-500">
-                        Browser Anda tidak mendukung pratinjau PDF. Silakan gunakan tombol Unduh di atas.
-                    </p>
-                </iframe>
+        <!-- Area Konten Utama (PDF Viewer dan Tombol Unduh) -->
+        <div class="mt-8">
+            <div class="bg-gray-100 p-4 rounded-xl shadow-inner mb-4 text-center">
+                <p class="text-sm text-gray-700 font-semibold">
+                    Silakan lihat pratinjau formulir di bawah ini dan klik tombol untuk mengunduh.
+                </p>
             </div>
             
-            <p class="text-sm text-gray-500 pt-4">
-                *Pastikan persyaratan peminjaman anda lengkap sebelum mengajukan pinjaman.
-            </p>
+            <!-- Tombol Unduh -->
+            <div class="text-center mb-6">
+                <!-- Pastikan URL_FILE_BLANKO_ANDA sudah diganti dengan link file yang sebenarnya -->
+                <a href="blanko.pdf" download="blanko_pinjaman_primkopau.pdf" 
+                   class="inline-flex items-center px-8 py-3 border border-transparent text-base font-bold rounded-full shadow-lg text-white bg-green-600 hover:bg-green-700 transition duration-150 transform hover:scale-[1.01]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    UNDUH BLANKO PINJAMAN (PDF)
+                </a>
+            </div>
 
-        </main>
-        
-        <div class="mt-8 text-center">
-            <a href="index.html" class="back-button inline-flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+            <!-- Iframe untuk menampilkan PDF -->
+            <div class="h-[75vh] w-full border-4 border-gray-300 rounded-lg overflow-hidden shadow-lg">
+                <!-- 
+                    CATATAN: 
+                    Menggunakan blanko.pdf. Jika file tidak dimuat, pastikan sudah diunggah.
+                -->
+                <iframe 
+                    src="blanko.pdf" 
+                    class="w-full h-full" 
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+        </div>
+
+        <!-- Tombol Kembali (Gaya Seragam) -->
+        <div class="text-center mt-8 pt-4 border-t">
+            <a href="index.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
                 Kembali ke Menu Utama
             </a>
         </div>
+
     </div>
 </body>
 </html>
