@@ -12,8 +12,17 @@
         .back-button {
             @apply px-4 py-2 text-sm font-medium rounded-lg text-gray-800 bg-gray-200 hover:bg-gray-300 transition duration-150 shadow-md;
         }
+        /* Menggunakan style yang lebih umum untuk card aturan */
         .aturan-card {
             @apply p-5 border-l-4 rounded-md shadow-sm mb-4;
+        }
+        /* Style untuk judul BAB */
+        .bab-title {
+            @apply text-xl font-extrabold text-gray-800 mt-6 mb-3 border-b-2 pb-1 border-gray-200;
+        }
+        /* Style untuk judul Pasal */
+        .pasal-title {
+            @apply font-bold text-lg mb-2;
         }
     </style>
 </head>
@@ -36,53 +45,146 @@
     <!-- Kontainer Konten -->
     <div class="w-full max-w-3xl p-8 bg-white rounded-xl shadow-2xl text-left">
         
-        <header class="mb-6 border-b pb-4">
+        <header class="mb-6 border-b pb-4 text-center">
             <h1 class="text-3xl font-extrabold text-blue-700 mb-2">
-                Aturan Peminjaman Anggota
+                Peraturan Khusus Unit Simpan Pinjam
             </h1>
             <p class="text-sm text-gray-500">
-                Dokumen resmi Primkopau Koharmatau. Berlaku mulai [Tanggal Berlaku].
+                Primkopau Mako Koharmatau. Berlaku sejak **Mei 2025**.
             </p>
         </header>
 
-        <section id="peraturan-content" class="text-gray-700 space-y-4 text-base">
+        <section id="peraturan-content" class="text-gray-700 text-sm">
+            
+            <!-- BAB II: PENGURUS UNIT SIMPAN PINJAM -->
+            <h2 class="bab-title">BAB II: PENGURUS UNIT SIMPAN PINJAM</h2>
             
             <div class="aturan-card border-blue-500 bg-blue-50">
-                 <p class="font-bold text-lg text-blue-800 mb-1">Pasal 1: Persyaratan Umum Peminjam</p>
-                 <ul class="list-disc list-inside ml-4 space-y-1 text-sm text-blue-700">
-                     <li>Wajib terdaftar sebagai anggota Primkopau minimal selama **6 (enam) bulan**.</li>
-                     <li>Telah melunasi minimal **50%** dari pinjaman sebelumnya (jika ada).</li>
-                     <li>Tidak dalam status cuti tanpa gaji atau sedang dalam proses pemberhentian.</li>
-                     <li>Mengisi formulir pengajuan pinjaman yang dapat diunduh di **Menu 3 (Form Peminjaman)**.</li>
-                 </ul>
+                <p class="pasal-title text-blue-800">Pasal 1: Kepala Unit Simpan Pinjam (Kaunit Sipa)</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Kepala pengurus unit simpan pinjam disebut Kepala Unit Simpan Pinjam (Kaunit Sipa).</li>
+                    <li>Kaunit Sipa merupakan anggota Primkopau Mako Koharmatau yang dipilih oleh Kaprimkopau Koharmatau.</li>
+                    <li>Kaunit Sipa dipilih dengan mempertimbangkan dedikasi, loyalitas, dan kecakapan dalam mengelola unit simpan pinjam.</li>
+                    <li>Kaunit Sipa dapat sewaktu-waktu diberhentikan oleh Kaprimkopau Koharmatau.</li>
+                </ul>
             </div>
 
+            <div class="aturan-card border-blue-500 bg-blue-50">
+                <p class="pasal-title text-blue-800">Pasal 2: Tugas Kaunit Sipa</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Mencatat dan mengelola transaksi pinjaman anggota sesuai prosedur dan kebijakan.</li>
+                    <li>Menjaga kelengkapan data anggota dan transaksi secara teratur dan akurat.</li>
+                    <li>Melakukan verifikasi terhadap pengajuan pinjaman anggota berdasarkan syarat administrasi dan analisis kelayakan (kemampuan bayar, riwayat pinjaman, dsb).</li>
+                    <li>Menyusun rekomendasi terkait pinjaman yang akan disetujui.</li>
+                    <li>Mendistribusikan pinjaman yang telah disetujui.</li>
+                    <li>Memantau kewajiban pembayaran angsuran secara rutin.</li>
+                    <li>Mengingatkan anggota yang menunggak atau terlambat membayar cicilan.</li>
+                    <li>Membuat pengajuan potongan angsuran pinjaman kepada Juru Bayar Pekas Denma Makoharmatau setiap bulan.</li>
+                    <li>Menyetorkan keuntungan unit simpan pinjam/sisa hasil usaha kepada Bendahara Primkopau Mako Koharmatau.</li>
+                    <li>Menyusun laporan bulanan mengenai pinjaman dan kondisi keuangan unit simpan pinjam yang diketahui Kaprim Primkopau Mako Koharmatau.</li>
+                    <li>Menyediakan data dukung bagi Kaprim, Bendahara, dan Sekretaris untuk penyusunan Laporan Tahunan (RAT).</li>
+                </ul>
+            </div>
+            
+            <!-- BAB III: PENGAJUAN PINJAMAN -->
+            <h2 class="bab-title">BAB III: PENGAJUAN PINJAMAN</h2>
+            
             <div class="aturan-card border-green-500 bg-green-50">
-                <p class="font-bold text-lg text-green-800 mb-1">Pasal 2: Batas Plafon dan Jangka Waktu</p>
-                <ul class="list-disc list-inside ml-4 space-y-1 text-sm text-green-700">
-                    <li>**Plafon Pinjaman:** Maksimum pinjaman adalah **Rp 20.000.000,00** atau **3 (tiga) kali** jumlah total Simpanan Wajib, mana yang lebih rendah.</li>
-                    <li>**Jangka Waktu:** Tenor pengembalian pinjaman maksimum adalah **24 (dua puluh empat) bulan**.</li>
-                    <li>**Bunga:** Dikenakan jasa administrasi sebesar 1% dan jasa pinjaman sebesar 1% per bulan (sistem *flat*).</li>
+                <p class="pasal-title text-green-800">Pasal 3: Persyaratan Peminjaman Dana</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Anggota dapat mengajukan pinjaman maksimal sebesar **Rp20.000.000,-** (dua puluh juta rupiah).</li>
+                    <li>Bagi anggota yang belum **1 (satu) tahun** menjadi anggota hanya dapat mengajukan maksimal **Rp10.000.000,-** (sepuluh juta rupiah).</li>
+                    <li>Anggota wajib melengkapi **Formulir Pengajuan Pinjaman** yang ditandatangani oleh:
+                        <ul class="list-disc list-inside ml-6 mt-1">
+                            <li>Pemohon, Atasan langsung pemohon, Dankoharmatau.</li>
+                            <li>Mengetahui Pekas dan Kaku.</li>
+                            <li>Kaprim, Kaunit Sipa. (lihat Lampiran I)</li>
+                        </ul>
+                    </li>
+                    <li>Kaunit Sipa dan Kaprim berhak menolak pengajuan pinjaman yang tidak layak diberikan.</li>
+                    <li>Pembayaran angsuran pinjaman dilakukan melalui potongan gaji dan/atau tunjangan kinerja (remunerasi).</li>
                 </ul>
             </div>
             
+            <div class="aturan-card border-green-500 bg-green-50">
+                <p class="pasal-title text-green-800">Pasal 4: Penambahan Pinjaman (Top-Up)</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Anggota dapat mengajukan penambahan pinjaman (top-up) dengan ketentuan:
+                        <ul class="list-disc list-inside ml-6 mt-1">
+                            <li>Jika pinjaman sebelumnya **Rp10.000.000,- atau lebih**, maka anggota harus telah melunasi minimal **setengah** dari pinjaman sebelumnya.</li>
+                            <li>Jika pinjaman sebelumnya **kurang dari Rp10.000.000,-**, maka anggota harus telah mencicil minimal **5 (lima) kali angsuran**.</li>
+                        </ul>
+                    </li>
+                    <li>Anggota dengan tunggakan angsuran **tidak dapat** mengajukan top-up.</li>
+                    <li>Pengajuan top-up wajib melengkapi syarat administrasi sebagaimana di Pasal 3 ayat (3).</li>
+                    <li>Bunga pinjaman top-up dikenakan sama dengan bunga pinjaman pokok, yaitu **0,75% per bulan** dari total pinjaman (dihitung dari pinjaman lama + tambahan).</li>
+                </ul>
+            </div>
+
+            <!-- BAB IV: PEMBAYARAN CICILAN -->
+            <h2 class="bab-title">BAB IV: PEMBAYARAN CICILAN</h2>
+
             <div class="aturan-card border-yellow-500 bg-yellow-50">
-                <p class="font-bold text-lg text-yellow-800 mb-1">Pasal 3: Prosedur dan Proses Pencairan</p>
-                <ul class="list-disc list-inside ml-4 space-y-1 text-sm text-yellow-700">
-                    <li>Formulir yang sudah diisi lengkap harus diserahkan kepada **Bendahara Kopau**.</li>
-                    <li>Batas pengajuan pinjaman adalah tanggal **10 setiap bulannya**.</li>
-                    <li>Persetujuan dan pencairan dana akan diproses paling lambat **7 (tujuh) hari kerja** setelah berkas diterima lengkap.</li>
+                <p class="pasal-title text-yellow-800">Pasal 5: Ketentuan Cicilan Bulanan</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Setiap anggota wajib membayar cicilan bulanan yang terdiri atas pokok pinjaman + bunga **0,75% per bulan** dari total pinjaman.
+                        <ul class="list-disc list-inside ml-6 mt-1">
+                            <li>Contoh: Pinjaman Rp20.000.000,-, maka bunga per bulan Rp150.000,-, di luar cicilan pokok.</li>
+                        </ul>
+                    </li>
+                    <li>Pengajuan pemotongan cicilan dilakukan oleh Kaunit Sipa.</li>
+                    <li>Pemotongan cicilan dilakukan melalui gaji atau tunjangan kinerja (remon) anggota oleh Pekas Denma Makoharmatau.</li>
+                    <li>Jika tidak terpotong dari gaji/remon, anggota wajib membayar langsung cicilan kepada Kaunit Sipa.</li>
                 </ul>
             </div>
             
-             <div class="aturan-card border-red-500 bg-red-50">
-                <p class="font-bold text-lg text-red-800 mb-1">Pasal 4: Kewajiban dan Sanksi</p>
-                <ul class="list-disc list-inside ml-4 space-y-1 text-sm text-red-700">
-                    <li>Anggota wajib menyetor angsuran tepat waktu melalui pemotongan gaji setiap bulan.</li>
-                    <li>Keterlambatan pembayaran lebih dari 3 bulan berturut-turut akan dikenakan sanksi berupa denda 5% dari angsuran pokok atau penangguhan hak keanggotaan.</li>
+            <!-- BAB V: PELUNASAN -->
+            <h2 class="bab-title">BAB V: PELUNASAN</h2>
+
+            <div class="aturan-card border-teal-500 bg-teal-50">
+                <p class="pasal-title text-teal-800">Pasal 6: Prosedur Pelunasan</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Anggota dapat melunasi sisa pinjaman secara langsung kepada Kaunit Sipa.</li>
+                    <li>Pelunasan dipercepat **tidak dikenakan tambahan bunga/jasa**.</li>
+                </ul>
+            </div>
+
+            <!-- BAB VI: PENUNGGAKAN PINJAMAN -->
+            <h2 class="bab-title">BAB VI: PENUNGGAKAN PINJAMAN</h2>
+
+            <div class="aturan-card border-red-500 bg-red-50">
+                <p class="pasal-title text-red-800">Pasal 7: Sanksi dan Tindakan Penunggakan</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Pengurus dapat melakukan pendekatan langsung kepada anggota yang menunggak melalui kunjungan, telepon, atau surat resmi.</li>
+                    <li>Jika belum ada tanggapan positif, Pengurus/Pembina Harian/Pembina Utama dapat mengirimkan **surat peringatan tertulis**.</li>
+                    <li>Apabila upaya persuasif gagal, Primkopau Mako Koharmatau dapat menempuh **jalur hukum** sesuai ketentuan peraturan yang berlaku.</li>
+                </ul>
+            </div>
+
+            <!-- BAB VII: ANGGOTA KELUAR -->
+            <h2 class="bab-title">BAB VII: ANGGOTA KELUAR</h2>
+
+            <div class="aturan-card border-purple-500 bg-purple-50">
+                <p class="pasal-title text-purple-800">Pasal 8: Kewajiban Saat Keluar</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Anggota yang keluar dari Primkopau (karena pindah/pensiun) **wajib melunasi seluruh pinjamannya**.</li>
+                    <li>Jika tidak mampu melunasi langsung, maka wajib membuat **Surat Perjanjian Pelunasan Sisa Pinjaman** dengan Kaprimkopau Koharmatau sebagai pihak kedua.</li>
+                    <li>Surat perjanjian wajib disertai jaminan berupa surat berharga hingga pinjaman dinyatakan lunas (lihat Lampiran II).</li>
                 </ul>
             </div>
             
+            <!-- BAB VIII: PENUTUP -->
+            <h2 class="bab-title">BAB VIII: PENUTUP</h2>
+
+            <div class="aturan-card border-gray-500 bg-gray-100">
+                <p class="pasal-title text-gray-800">Pasal 9: Aturan Penutup</p>
+                <ul class="list-decimal list-inside ml-4 space-y-1">
+                    <li>Peraturan khusus ini menjadi pedoman bagi pengurus dan anggota Unit Simpan Pinjam.</li>
+                    <li>Peraturan ini berlaku sejak **Mei 2025** sampai dengan ditetapkannya peraturan baru.</li>
+                    <li>Hal-hal yang belum diatur dalam peraturan ini akan ditetapkan kemudian melalui peninjauan dan keputusan rapat pengurus.</li>
+                </ul>
+            </div>
+
         </section>
 
         <div class="mt-8 text-center">
