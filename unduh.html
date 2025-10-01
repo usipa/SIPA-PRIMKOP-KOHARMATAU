@@ -1,24 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Dokumen Peminjaman</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Peminjaman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Styling konsisten */
+        body { font-family: 'Inter', sans-serif; }
+        .modern-bg {
+            background: linear-gradient(135deg, #4f46e5 0%, #1e3a8a 100%);
+        }
+        .back-button {
+            @apply px-4 py-2 text-sm font-medium rounded-lg text-gray-800 bg-gray-200 hover:bg-gray-300 transition duration-150 shadow-md;
+        }
+        /* Style khusus untuk tombol unduh utama */
+        .download-button {
+            @apply bg-green-500 text-white font-bold py-4 px-8 text-xl rounded-xl shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-3;
+        }
+        /* Style untuk gambar blanko */
+        .blanko-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body>
-    <div class="logo-container">
-        <img src="logo1.png" alt="Logo Perusahaan 1" class="logo">
-        <img src="logo2.png" alt="Logo Perusahaan 2" class="logo">
+<body class="modern-bg min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Header Kecil dengan Logo (Ukuran 2 cm) -->
+    <div class="absolute top-0 left-0 p-3 flex items-center space-x-2 bg-white bg-opacity-90 rounded-br-lg shadow-md">
+        <!-- Logo 1: Lencana (Simbol Organisasi) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z"></path>
+            <path d="M12 8l-5 5M12 8l5 5M12 8V5"></path>
+        </svg>
+        <!-- Logo 2: Keuangan (Simbol Koperasi) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M16 8h-4a2 2 0 00-2 2v4a2 2 0 002 2h4M12 8V6M12 18v-2"></path>
+        </svg>
     </div>
-    <div class="container">
-        <h1>Blanko Peminjaman</h1>
-        <p>Silakan lihat dokumen di bawah ini atau unduh untuk keperluan Anda.</p>
+
+    <!-- Kontainer Konten -->
+    <div class="w-full max-w-4xl p-8 bg-white rounded-xl shadow-2xl text-center">
         
-        <div class="pdf-viewer-container">
-            <iframe src="blanko.pdf" width="100%" height="500px"></iframe>
+        <header class="mb-8 border-b pb-4">
+            <h1 class="text-3xl font-extrabold text-blue-700 mb-2">
+                Form Pengajuan Pinjaman
+            </h1>
+            <p class="text-gray-500">
+                Lihat dan unduh blanko pinjaman di bawah ini untuk melengkapi persyaratan administrasi.
+            </p>
+        </header>
+
+        <div class="mb-8 p-6 bg-gray-50 rounded-lg border border-dashed border-gray-300">
+            <p class="text-lg font-semibold text-gray-700 mb-4">
+                Pratinjau Blanko Pengajuan
+            </p>
+            
+            <!-- TAMPILAN GAMBAR BLANKO -->
+            <img 
+                src="blanko.png" 
+                alt="Blanko Pengajuan Pinjaman Anggota" 
+                class="blanko-image mx-auto mb-6"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x400/eeeeee/333333?text=Blanko.png+Tidak+Ditemukan';"
+            >
+            
+            <!-- Tombol Unduh Utama (Menggunakan file blanko.png) -->
+            <a href="blanko.png" class="download-button" download="blanko_pengajuan_pinjaman.png">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                <span>Unduh Blanko (Blanko.PNG)</span>
+            </a>
+            
+            <p class="text-xs text-gray-400 mt-3">
+                Pastikan file **blanko.png** sudah tersedia di folder yang sama.
+            </p>
         </div>
-        
-        <a href="blanko.pdf" download class="button">Unduh Blanko PDF</a>
-        <a href="index.html" class="button">Kembali ke Beranda</a>
+
+        <div class="mt-8">
+            <a href="index.html" class="back-button inline-flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                Kembali ke Menu Utama
+            </a>
+        </div>
     </div>
 </body>
 </html>
